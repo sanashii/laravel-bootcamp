@@ -4,6 +4,8 @@ use App\Http\Controllers\ChirpController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\Register;
 use App\Http\Controllers\Auth\Logout;
+use App\Http\Controllers\Auth\Login;
+
 
 Route::get("/", [ChirpController::class, 'index']);
 
@@ -29,4 +31,12 @@ Route::post('/register', Register::class)
 
 // Logout route
 Route::post('/logout', Logout::class)
-    ->middleware('auth'); // Only authenticated users can log out
+    ->middleware('auth')
+    ->name('logout'); // Only authenticated users can log out
+
+// Login routes
+Route::view('/login', 'auth.login')
+    ->middleware('guest')
+    ->name('login'); // Only guests can access the login form
+Route::post('/login', Login::class)
+    ->middleware('guest'); // Only guests can log in
