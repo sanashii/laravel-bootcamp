@@ -37,7 +37,7 @@ class ChirpPolicy
      */
     public function update(User $user, Chirp $chirp): bool
     {
-        return $chirp->user()->is($user);
+        return $chirp->user()->is($user); // Only the owner can update the chirp
     }
 
     /**
@@ -45,7 +45,7 @@ class ChirpPolicy
      */
     public function delete(User $user, Chirp $chirp): bool
     {
-        return $chirp->user()->is($user);
+        return $chirp->user()->is($user); // Only the owner can delete the chirp
     }
 
     /**

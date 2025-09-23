@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout> <!-- Using the layout component, this is inserted in layout.blade.php -->
     <x-slot:title>
         Home Feed
     </x-slot:title>
@@ -40,7 +40,7 @@
         <!-- Feed -->
         <div class="space-y-4 mt-8">
             @forelse ($chirps as $chirp)
-                <x-chirp :chirp="$chirp" />
+                <x-chirp :chirp="$chirp" /> <!-- Using the chirp component, passing the current chirp to chirp.blade.php -->
             @empty
                 <div class="hero py-12">
                     <div class="hero-content text-center">
